@@ -1,5 +1,5 @@
-import remark from 'remark'
-import github from 'remark-github'
+const remark = require('remark')
+const parser = require('remark-github')
 
 const resolveOptions = (options = {}) => {
   return {
@@ -8,16 +8,13 @@ const resolveOptions = (options = {}) => {
   }
 }
 
-// This function is supposed to be used on "web" platform only.
-// This can be used to read a markdown string or source code in a text editor and then add references to that string.
 const linkify = (source, options = {}) => {
   let output = ''
 
   remark()
-    .use(github, resolveOptions(options))
+    .use(parser, resolveOptions(options))
     .process(String(source), (err, contents) => {
       if (err) {
-        // This is thrown by remark-github
         throw err
       }
 
@@ -27,4 +24,4 @@ const linkify = (source, options = {}) => {
   return output
 }
 
-export { linkify }
+module.exports = { linkify }
