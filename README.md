@@ -216,6 +216,8 @@ Returns the processed markdown code as a string.
 
 `options`
 
+An object with options `strong` and `repository`.
+
 * `strong` (**`Boolean`**) - Uses strong nodes for `@mentions`. Default value is `false`.
 
 * `repository` (**`String`**) - Repository url. If not given, uses `repository` field from `package.json` file.
