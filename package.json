@@ -22,8 +22,6 @@
     "linkify": "./src/index.js"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "execa": "^0.9.0",
     "jest": "^22.4.2"
   },
