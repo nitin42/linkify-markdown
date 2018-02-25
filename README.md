@@ -1,7 +1,8 @@
 # Linkify markdown
 
-> ***💻 A cli tool which automatically add references to issues, pull requests, user mentions and forks to your project markdown file.***
+![version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
 
+> ***A cli tool which automatically adds references to issues, pull requests, user mentions and forks to your project markdown file.***
 
 <p align="center">
   <img src="https://gyazo.com/1518fc90b43476098c17ee268f911fce.png" />
@@ -34,3 +35,125 @@ Easy to add references automatically to:
 * **issues across projects** - `project-org/project/#2`
 
 * **@mentions** - `@nitin42`
+
+## Usage
+
+To use this tool, you will need to provide a `repository` relative to which references will be added. To provide a `repository`, you can add these fields to your `package.json` file:
+
+```json
+{
+  "repository": {
+    "url": "your_project_url"
+  }
+}
+```
+
+or you can also provide the `repository` url through command line options API.
+
+```
+linkify readme.md --repo <repository_url>
+```
+
+> **Note** - This will overwrite the package.json `url` field.
+
+### Adding references/links to a single markdown file
+
+To add links or references to a single markdown file, use command
+
+```
+linkify sample.md
+```
+
+where `sample.md` might look like this:
+
+```markdown
+# Heading
+
+@nitin42
+
+@kentcdodds
+
+Issue 1 - #1
+
+Issue 2 - #2
+
+Commit - 609fc19d2fc1d70e43dcaff3311ad4a79f651c9e
+```
+
+Running the above command will convert this to -
+
+```markdown
+# Heading
+
+[@nitin42](https://github.com/nitin42)
+
+[@kentcdodds](https://github.com/kentcdodds)
+
+Issue 1 - [#1](https://github.com/<username>/<repo-name>/issues/1)
+
+Issue 2 - [#2](https://github.com/<username>/<repo-name>/issues/2)
+
+Commit - [`dfaec38`](https://github.com/<username>/<repo-name>/commit/dfaec38da4cd170dd1acce4e4c260f735fe2cfdc)
+```
+
+Notice one thing that we haven't passed the option `--repo` to provide the repository url so running this command assumes that you have added the `repository` field in your `package.json` file.
+
+### Adding references/links to multiple files
+
+To use this tool for multiple files, use this command
+
+```
+linkify samples/A.md samples/B.md samples/C.md samples/D.md
+```
+
+Running the above command will convert only those files which are either in markdown format or if they are not empty. If they are empty or not in markdown format, the tool will skip processing those files.
+
+The output will look like this:
+
+<p align="center">
+  <img src="https://gyazo.com/16fb0cabaf2635afcf3bd71ec3012e7a.png" />
+</p>
+
+The same is applicable to running the command for a single file i.e if it the file is empty, it will skip processing it.
+
+### Adding references/links to a directory of markdown files
+
+You can also add links to all the files in a directory. Use this command -
+
+```
+linkify -d samples/
+```
+
+This will add links to all the files (except those which are empty or not in markdown format)
+
+## Messages
+
+This is a reference section.
+
+* You will get an error if you don't provide a file or directory -
+
+![msg](https://i.gyazo.com/ba53752071db872258fb7453d1dacf91.png)
+
+* You will receive warning for the empty files or directory
+
+![file](https://gyazo.com/34646a73d23b4dbe59beae9ba8765a37.png)
+
+## API
+
+**For a single or multiple files**
+
+Command - `linkify <file 1> <file 2> ... <file n> options`
+
+**For directory of files**
+
+Command - `linkify -d <directory_name> options`
+
+`options`
+
+* `-s` or `--strong` - Uses strong nodes for `@mentions`
+
+* `-h` or `--help` - Use this option for help
+
+## License
+
+MIT
