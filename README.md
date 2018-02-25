@@ -4,7 +4,7 @@
 
 
 <p align="center">
-  <img src="./art/linkify-logo.png" />
+  <img src="https://gyazo.com/1518fc90b43476098c17ee268f911fce.png" />
 </p>
 
 ## Demo
