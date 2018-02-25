@@ -1,8 +1,11 @@
-**WORK IN PROGRESS**
-
 # Linkify Markdown
 
 > 💻 A cli tool which automatically add references to issues, pull requests, user mentions and forks to your project markdown file.
+
+
+<p align="center">
+  <img src="./art/linkify-logo.png" />
+</p>
 
 ## Demo
 
