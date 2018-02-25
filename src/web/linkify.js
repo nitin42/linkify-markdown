@@ -1,7 +1,7 @@
 import remark from 'remark'
 import github from 'remark-github'
 
-const resolveOptions = (options={}) => {
+const resolveOptions = (options = {}) => {
   return {
     mentionStrong: options.strong || false,
     repository: options.repository || ''
@@ -13,20 +13,18 @@ const resolveOptions = (options={}) => {
 const linkify = (source, options = {}) => {
   let output = ''
 
-	remark()
-		.use(github, resolveOptions(options))
-		.process(String(source), (err, contents) => {
-			if (err) {
-				// This is thrown by remark-github
-				throw err
-			}
+  remark()
+    .use(github, resolveOptions(options))
+    .process(String(source), (err, contents) => {
+      if (err) {
+        // This is thrown by remark-github
+        throw err
+      }
 
       output = String(contents)
     })
-    
+
   return output
 }
 
-export {
-  linkify
-}
+export { linkify }
