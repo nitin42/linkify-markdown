@@ -1,6 +1,7 @@
 # Linkify markdown
 
 ![version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
+[![Build Status](https://travis-ci.org/nitin42/linkify-markdown.svg?branch=master)](https://travis-ci.org/nitin42/linkify-markdown)
 
 > ***A cli tool which automatically adds references to issues, pull requests, user mentions and forks to your project markdown file.***
 
