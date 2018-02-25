@@ -29,6 +29,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jest",
-    "test:watch": "./node_modules/.bin/jest --watch"
+    "test:watch": "./node_modules/.bin/jest --watch",
+    "format":
+      "find src -name '*.js' | xargs prettier --write --no-semi --single-quote"
   }
 }
