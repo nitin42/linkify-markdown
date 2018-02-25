@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Linkify Markdown
 
 > A cli tool which automatically add references to issues, pull requests, user mentions and forks to your project markdown file.
@@ -30,8 +29,3 @@ Easy to add references automatically to:
 * **issues across projects** - `project-org/project/#2`
 
 * **@mentions** - `@nitin42`
-=======
-# linkify-markdown
-> 💻  A cli tool which automatically add references to issues, pull requests, user mentions and forks to a markdown file.
-
->>>>>>> b66c6f4d74826ee920cbf760c012992b90ee8de9
