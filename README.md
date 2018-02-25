@@ -38,7 +38,7 @@ Easy to add references automatically to:
 
 ## Usage
 
-To use this tool, you will need to provide a `repository` relative to which references will be added. To provide a `repository`, you can add these fields to your `package.json` file:
+To use this tool, you will need to add a `repository` relative to which references will be added. To add a `repository`, you can add these fields to your `package.json` file:
 
 ```json
 {
