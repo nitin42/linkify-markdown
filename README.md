@@ -1,5 +1,3 @@
-**This project is work in progress 🚧. Thanks for having patience!**
-
 # Linkify markdown
 
 ![version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
