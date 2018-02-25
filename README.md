@@ -236,3 +236,5 @@ An object with options `strong` and `repository`.
 ## License
 
 MIT
+
+**If you liked this project, then ⭐ it or either [share it on Twitter](https://twitter.com/NTulswani) or I'd also love to see your contributions or ideas to improve the tool. Thanks!**
