@@ -16,7 +16,7 @@
 ## Install
 
 ```
-npm install linkify-markdown
+npm install linkify-markdown -g
 ```
 
 ## Why ?
@@ -127,6 +127,59 @@ linkify -d samples/
 
 This will add links to all the files (except those which are empty or not in markdown format)
 
+### Usage on web
+
+You will need to install the package locally in your project repo instead of globally installing it in order to use it on web.
+
+```
+npm install linkify-markdown
+```
+
+Here is an example to use this on web to process a markdown string of code.
+
+```js
+const { linkify } = require('linkify-markdown')
+
+const sample = `
+# Sample
+
+@nitin42
+
+@kentcdodds
+
+#1
+
+#2
+
+Commit - dfaec38da4cd170dd1acce4e4c260f735fe2cfdc
+`
+
+const options = {
+  strong: true,
+  repository: 'https://github.com/nitin42/cli-test-repo'
+}
+
+linkify(sample, options)
+```
+
+This will return the output as a string -
+
+```
+# Sample
+
+[**@nitin42**](https://github.com/nitin42)
+
+[**@kentcdodds**](https://github.com/kentcdodds)
+
+[#1](https://github.com/nitin42/cli-test-repo/issues/1)
+
+[#2](https://github.com/nitin42/cli-test-repo/issues/2)
+
+Commit - [`dfaec38`](https://github.com/nitin42/cli-test-repo/commit/dfaec38da4cd170dd1acce4e4c260f735fe2cfdc)
+```
+
+[Learn more about the Web api](#api)
+
 ## Messages
 
 This is a reference section.
@@ -151,9 +204,22 @@ Command - `linkify -d <directory_name> options`
 
 `options`
 
-* `-s` or `--strong` - Uses strong nodes for `@mentions`
+* `-s` or `--strong` - Uses strong nodes for `@mentions`.
 
 * `-h` or `--help` - Use this option for help
+
+**For usage on web**
+
+`linkify(markdown_string, [options])`
+
+Returns the processed markdown code as a string.
+
+`options`
+
+* `strong` (**`Boolean`**) - Uses strong nodes for `@mentions`. Default value is `false`.
+
+* `repository` (**`String`**) - Repository url. If not given, uses `repository` field from `package.json` file.
+
 
 ## License
 
