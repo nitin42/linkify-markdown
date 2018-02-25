@@ -17,8 +17,16 @@
 
 ## Install
 
+To use the cli-tool, install using the following command -
+
 ```
 npm install linkify-markdown -g
+```
+
+To use this as a package on web -
+
+```
+npm install linkify-markdown
 ```
 
 ## Why ?
