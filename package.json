@@ -1,8 +1,8 @@
 {
   "name": "linkify-markdown",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "A cli tool which automatically add references to issues, pull requests, user mentions and forks to a markdown file.",
-  "main": "src/index.js",
+  "main": "src/web/index.js",
   "author": "Nitin Tulswani",
   "license": "MIT",
   "repository": {
