@@ -1,0 +1,34 @@
+{
+  "name": "linkify-markdown",
+  "version": "1.0.0-beta.1",
+  "description": "A cli tool which automatically add references to issues, pull requests, user mentions and forks to a markdown file.",
+  "main": "src/index.js",
+  "author": "Nitin Tulswani",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/nitin42/cli-test-repo"
+  },
+  "dependencies": {
+    "chalk": "^2.3.1",
+    "file-type": "^7.6.0",
+    "meow": "^4.0.0",
+    "mime-types": "^2.1.18",
+    "read-chunk": "^2.1.0",
+    "remark": "^9.0.0",
+    "remark-github": "^7.0.3",
+    "to-vfile": "^2.2.0"
+  },
+  "bin": {
+    "linkify": "./src/index.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "execa": "^0.9.0",
+    "jest": "^22.4.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch"
+  }
+}
