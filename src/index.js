@@ -8,16 +8,12 @@ const { resolve } = require('path')
 
 const linkify = require('./linkify')
 
-// Colors
 const yellow = chalk.yellow
 const cyan = chalk.cyan
 const red = chalk.red
 
-// Utilities
-
 const log = (...args) => console.log(...args)
 
-// Print all the file names
 const printFileNames = files => {
   files.forEach((file, i) => {
     i++
@@ -26,12 +22,9 @@ const printFileNames = files => {
   log()
 }
 
-// Message to be displayed after the files are processed
 const messages = {
-  // Show this message when input is only a single file
   single: file =>
     log(cyan(`\n✅  Done adding references to your file ${yellow(file)}\n`)),
-  // For multiple files
   multiple: (files, skippedFiles) => {
     log(
       cyan(
@@ -50,7 +43,6 @@ const messages = {
       printFileNames(skippedFiles)
     }
   },
-  // Error, when no file name or directory name is provided
   error: () =>
     log(
       red(
@@ -59,12 +51,10 @@ const messages = {
         )} for help.\n`
       )
     ),
-  // Contents of the file were empty
   empty: data =>
     log(
       cyan(`\nHmm... seems like the file ${yellow(data.input[0])} is empty.\n`)
     ),
-  // Only markdown files are supported
   invalidType: () =>
     log(
       red(
@@ -81,22 +71,14 @@ const messages = {
     )
 }
 
-// We are only interested in markdown files
 const isMarkdownFile = file => mime.lookup(file) === 'text/markdown'
 
-// Process multiple files or a collection of files in a directory
 const processMultipleFiles = (files, options = {}) => {
-  // Check the contents of a file
   let isEmpty = false
-  // Store the files that were skipped (they were empty, so sad!)
   let skippedFiles = []
-  // Store the files that were processed
   let processedFiles = []
 
   files.forEach(file => {
-    // Don't process an empty markdown file
-    // We need to append the directory name along with a file name because 'remark-github' assumes
-    // all the files present in the project root, so it will given an error otherwise.
     isEmpty = linkify(
       options.isDir ? `${options.name}/${file}` : file,
       getOptions()
