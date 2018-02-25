@@ -6,7 +6,7 @@
   "author": "Nitin Tulswani",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/nitin42/cli-test-repo"
+    "url": "https://github.com/nitin42/linkify-markdown"
   },
   "dependencies": {
     "chalk": "^2.3.1",
