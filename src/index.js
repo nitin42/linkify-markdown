@@ -45,9 +45,7 @@ const messages = {
 	},
 	// Error, when no file name or directory name is provided
 	error: () =>
-		log(
-			red(`\nOops! You didn't provide a file name or a directory name. Type ${yellow("linkify --help")} for help.\n`)
-		),
+		log(red(`\nOops! You didn't provide a file name or a directory name. Type ${yellow("linkify --help")} for help.\n`)),
 	// Contents of the file were empty
 	empty: data => log(cyan(`\nHmm... seems like the file ${yellow(data.input[0])} is empty.\n`)),
 	// Only markdown files are supported
@@ -116,8 +114,8 @@ Usage
   $ ${yellow("linkify -d <directory_name>")}
 
   For file per options, use ${yellow(
-		"linkify <filename> options"
-	)}. For example - You only want to use strong option for some files.
+			"linkify <filename> options"
+		)}. For example - You only want to use strong option for some files.
 
 Options
   --strong, -s  Wrap the @mentions in **strong nodes**
@@ -189,29 +187,3 @@ if (isSingleFile) {
 } else if (isDirectory) {
 	!isEmptyDir(data) ? processFilesInDir(data) : messages.emptyDir(data)
 }
-
-/**
- * TODO:
- *
- * 1. Error handling
- * 2. Resolve path for markdown files ✅
- * 4. Refactor the code for generating the markdown ✅
- * 5. Add support for strings also because then this tool will also be usable on web. ✅
- * 6. Repository option for usage on web because we won't have package.json file for a specific project in that situation ✅
- * 5. Write tests
- * 6. Write examples
- * 7. Write documentation
- * 8. Support directories ✅
- *
- * Should do:
- *
- * 1. Process a single '.md' file with or without option strong.
- * 2. Skip processing if the file is empty.
- * 3. Process multiple '.md' files with or without options
- * 4. Skip processing if the file/s are empty.
- * 5. Display an err msg if no file is provided.
- * 6. Display an err msg if file is not 'text/markdown'
- * 7. Process a directory of markdown files with or without option strong.
- * 8. Skip processing any empty file in a directory
- *
- */

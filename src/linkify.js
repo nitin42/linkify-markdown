@@ -4,9 +4,9 @@ const parser = require("remark-github")
 const { resolve } = require("path")
 const { blue, yellow } = require("chalk")
 
-const read = (file) => vfile.readSync(file)
+const read = file => vfile.readSync(file)
 
-const write = (data) => vfile.writeSync(data)
+const write = data => vfile.writeSync(data)
 
 // Adds references to a markdown file provided a repository field in package.json or via the option param.
 const linkify = (filename, options = {}) => {
